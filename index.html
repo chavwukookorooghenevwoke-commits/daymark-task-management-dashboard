@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f7fb">
+  <meta name="description" content="Daymark is a polished, responsive task management dashboard featuring a Kanban board, calendar, projects, productivity insights, and offline-first task tracking.">
+  <title>Daymark — Your work, in focus</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script src="icons.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div class="app-shell" id="app-shell">
+    <div id="mobile-shade" class="mobile-shade" hidden></div>
+    <aside class="sidebar" id="sidebar" aria-label="Main navigation">
+      <div class="sidebar-brand">
+        <span class="brand-icon" aria-hidden="true"><i class="fa-solid fa-layer-group"></i></span>
+        <span class="brand-name">daymark<span class="brand-dot">.</span></span>
+        <button class="icon-button mobile-close" data-action="close-sidebar" aria-label="Close navigation"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="workspace-card">
+        <span class="workspace-avatar"><i class="fa-solid fa-sparkles"></i></span>
+        <span class="workspace-text"><strong>My workspace</strong><small>Personal productivity</small></span>
+        <i class="fa-solid fa-chevron-down workspace-chevron" aria-hidden="true"></i>
+      </div>
+      <div class="sidebar-content">
+        <div class="nav-label">WORKSPACE</div>
+        <nav id="primary-nav" class="nav-list" aria-label="Workspace sections"></nav>
+        <div class="sidebar-section-head"><span class="nav-label">PROJECTS</span><button class="tiny-icon" data-action="new-project" title="Create project" aria-label="Create project"><i class="fa-solid fa-plus"></i></button></div>
+        <nav id="project-nav" class="project-nav" aria-label="Filter by project"></nav>
+      </div>
+      <div class="sidebar-bottom">
+        <div class="sidebar-tip"><span class="tip-icon"><i class="fa-solid fa-bolt"></i></span><strong>Little steps. Big progress.</strong><small>Make room for what matters today.</small></div>
+        <div class="profile-chip"><div class="profile-avatar">DW</div><span><strong>Demo workspace</strong><small>Stored in this browser</small></span><i class="fa-solid fa-circle-check"></i></div>
+      </div>
+    </aside>
+    <div class="main-area">
+      <header class="topbar" id="topbar">
+        <div class="topbar-left"><button class="icon-button menu-toggle" data-action="toggle-sidebar" aria-label="Open navigation"><i class="fa-solid fa-bars-staggered"></i></button><span id="breadcrumb" class="breadcrumb">Workspace <i class="fa-solid fa-chevron-right"></i> Overview</span></div>
+        <div class="topbar-right">
+          <div class="global-search"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i><input id="global-search" type="search" placeholder="Search tasks..." aria-label="Search tasks" autocomplete="off"><kbd>⌘ K</kbd></div>
+          <button class="icon-button theme-button" data-action="toggle-theme" aria-label="Toggle dark mode" title="Toggle dark mode"><i class="fa-regular fa-moon"></i></button>
+          <button class="icon-button notification-button" data-action="notifications" aria-label="Show due tasks" title="Due tasks"><i class="fa-regular fa-bell"></i><span id="notification-dot" class="notification-dot" hidden></span></button>
+          <button class="primary-button topbar-add" data-action="new-task"><i class="fa-solid fa-plus" aria-hidden="true"></i><span>New task</span></button>
+        </div>
+      </header>
+      <main id="main-content" class="content" tabindex="-1" aria-live="off"></main>
+      <footer class="app-footer">Daymark <span>·</span> Organise your work, beautifully <span>·</span> Demo app with local browser storage</footer>
+    </div>
+  </div>
+  <div id="overlay-root"></div>
+  <div class="toast-stack" id="toast-stack" role="status" aria-live="polite" aria-atomic="false"></div>
+  <input id="import-input" type="file" accept=".json,application/json" hidden aria-label="Import task data">
+</body>
+</html>
